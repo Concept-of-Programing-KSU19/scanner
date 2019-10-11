@@ -1,0 +1,31 @@
+package io;
+
+import java.io.File;
+import java.util.Scanner;
+
+public class ReadFromFileUsingScanner {
+    public static void main(String[] args) throws Exception {
+ //        File file=new File("/Users/rezadadashi/Desktop/concept of programming/input.txt");
+//         Scanner sc=new Scanner(file);
+//         while(sc.hasNext()){
+//             System.out.println(sc.next());
+//             
+//             
+//             
+//         }
+int counter = 0;
+
+while (inputFile.hasNext()) {
+    inputFile.nextLine();
+    counter++;
+}
+
+inputFile = new Scanner("/Users/rezadadashi/Desktop/concept of programming/input.txt"); //to get to the beginning of the file
+
+String[] words = new String[counter];
+
+for (int i = 0; i < counter; i++) {
+    words[i] = inputFile.nextLine();
+}
+    }
+}
