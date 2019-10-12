@@ -1,0 +1,155 @@
+//input and output for Intelij goes in C:\...\IdeaProjects\projName
+
+package com.company;
+import java.io.*;
+import java.nio.charset.Charset;
+public class Main {
+
+    public static void main(String args[]) throws IOException {
+       // FileInputStream in = null;
+     //   FileOutputStream out = null;
+
+      //  in = new FileInputStream("input.txt");
+      //  out = new FileOutputStream("output.txt");
+
+        String line;
+        String [] words;
+        int counterLine=0;
+        String space = " ";
+        String [] keyWordArr = {"xor", "end","return"};
+        String [] symArr = {"/", "\\","+","-","=","*"};
+        int [] intArr=new int[100];
+
+        //fills intArr 0-99
+        for (int l=0;l <100;++l){
+            intArr[l]=l;
+            System.out.println(intArr[l]);
+        }
+
+
+
+        try (
+                InputStream in = new FileInputStream("input.txt");
+                InputStreamReader inR = new InputStreamReader(in, Charset.forName("UTF-8"));
+                BufferedReader br = new BufferedReader(inR);
+
+
+                OutputStream out = new FileOutputStream("output.txt");
+                OutputStreamWriter outW = new OutputStreamWriter(out, Charset.forName("UTF-8"));
+                BufferedWriter bw = new BufferedWriter(outW);
+
+        ) {
+            while ((line = br.readLine()) != null) {
+               // for (int x =0; line!=null;x++) {
+                    words = line.split(space);
+                    for (int i = 0; i < words.length; i++) {
+                        if (i == 0) {
+                            counterLine++;
+                            bw.write("Line: " + counterLine);
+                            bw.newLine();
+
+
+                        }
+
+                        System.out.println("Place at array: " + i + " and its value is: " + words[i]);
+                        bw.write("Place at array: " + i + " and its value is: " + words[i]);
+                        bw.newLine();
+
+                        //make a nested for loop in here and import thr 2 strings for comparison.
+                        String xor = "xor";
+                        //if(xor.equals(words[i]))
+                      //  {
+                       //    bw.write("xor detected");
+                        //}
+                        for (int j =0; j<keyWordArr.length; j++){
+                            if((words[i]).equals(keyWordArr[j]))
+                            {
+
+                                bw.write("                                                                              I have match for \"" + words[i] + "\" with \"" + keyWordArr[j]+"\"");
+                                bw.newLine();
+                            }
+
+
+
+                        }
+
+
+
+                        for (int m =0; m<intArr.length; m++) {
+
+                            if ((words[i]).equals("" +intArr[m])) {
+
+                                bw.write("                                                                              I have match for \"" + words[i] + "\" with \"" + intArr[m]+"\"");
+                                bw.newLine();
+                            }
+
+                        }
+
+
+
+                        for (int n =0; n<symArr.length; n++) {
+
+                            if ((words[i]).equals("" +symArr[n])) {
+
+                                bw.write("                                                                              I have match for \"" + words[i] + "\" with \"" + symArr[n]+"\"");
+                                bw.newLine();
+                            }
+
+                        }
+
+
+
+
+
+
+                    }
+
+
+
+
+            }
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+        int c;
+        while ((c = in.read()) != -1) {
+            //32 is space
+            out.write(c);
+            System.out.println(c);
+        }
+        */
+
+
+
+//
+
+
+    }
+}
