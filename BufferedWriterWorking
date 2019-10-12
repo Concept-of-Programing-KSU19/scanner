@@ -1,9 +1,5 @@
 //input and output for Intelij goes in C:\...\IdeaProjects\projName
 
-
-
-//PSA - DISREGARD THE CONSOLE OUTPUT AS IT WAS USED FOR TETSING, LOOK AT THE OUTPUT FILE
-
 package com.company;
 import java.io.*;
 import java.nio.charset.Charset;
@@ -20,7 +16,6 @@ public class Main {
         String [] words;
         int counterLine=0;
         String space = " ";
-        String [] blank = {" "};
 
         try (
                 InputStream in = new FileInputStream("input.txt");
@@ -36,13 +31,7 @@ public class Main {
             while ((line = br.readLine()) != null) {
                // for (int x =0; line!=null;x++) {
                     words = line.split(space);
-                    
-                    for (int i = 0; i < words.length; i++) {  
-                    
-                    
-                    //DO NOT NEED TO CHECK FOR BLANK SPACES AS JULIA ISNT LIKE PYTHON WHERE INDENTATION MATTERS
-                    //AS LONG AS INPUT JULIA DOESNT HAVE INDENTATION IT WILL WORK
-                    /*
+                    for (int i = 0; i < words.length; i++) {
                         if (i == 0) {
                             counterLine++;
                             bw.write("Line: " + counterLine);
@@ -50,17 +39,6 @@ public class Main {
 
 
                         }
-                        if(words[i].equals(blank[0])) {
-                            bw.write("Blank space test");
-                        }
-                        if(words[i].equals(space)){
-                                bw.write("Blank space test");
-
-
-
-                        }
-                        else
-                        */
 
                         System.out.println("Place at array: " + i + " and its value is: " + words[i]);
                         bw.write("Place at array: " + i + " and its value is: " + words[i]);
@@ -68,7 +46,7 @@ public class Main {
 
 
                     }
-                }
+                
 
 
 
