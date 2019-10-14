@@ -1,0 +1,76 @@
+//input and output for Intelij goes in C:\...\IdeaProjects\projName
+package com.company;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+
+public class Main {
+    public static void main(String args[]) throws IOException {
+        //Fills the INT array 0-99
+        for (int l=0;l <100;++l){
+            Global.intArr[l]=l;
+          //  System.out.println(intArr[l]);
+        }
+        //Buffered reader & Buffered Writer
+        try     (
+                InputStream in = new FileInputStream("input.txt");
+                InputStreamReader inR = new InputStreamReader(in, StandardCharsets.UTF_8);
+                BufferedReader br = new BufferedReader(inR);
+                OutputStream out = new FileOutputStream("output.txt");
+                OutputStreamWriter outW = new OutputStreamWriter(out, StandardCharsets.UTF_8);
+                BufferedWriter bw = new BufferedWriter(outW)
+                ) {
+            //Takes line and breaks it into "words" by space
+            while ((Global.line = br.readLine()) != null) {
+                    Global.words = Global.line.split(Global.space);
+
+                 
+
+                    for (int i = 0; i < Global.words.length; i++) {
+                        if (i == 0) {
+                            Global.counterLine++;
+                            bw.write("Line: " + Global.counterLine);
+                            bw.newLine();
+                        }
+                        //System.out.println("Place at array: " + i + " and its value is: " + Global.words[i]);
+                        bw.write("Place at array: " + i + " and its value is: " + Global.words[i]);
+                        bw.newLine();
+
+                        /*NestedLoop for equals*/
+                        /* Probably can make method(s)*/
+                        //Nested for keyword Array
+                        for (int j =0; j<Global.keyWordArr.length; j++){
+                            if((Global.words[i]).equals(Global.keyWordArr[j]))
+                            {
+                                bw.write("                                                                              I have match for \"" + Global.words[i] + "\" with \"" + Global.keyWordArr[j]+"\"");
+                                bw.newLine();
+                            }
+                        }
+                        //Nested for intArr
+                        for (int m =0; m<Global.intArr.length; m++) {
+                            if ((Global.words[i]).equals("" +Global.intArr[m])) {
+                                bw.write("                                                                              I have match for \"" + Global.words[i] + "\" with \"" + Global.intArr[m]+"\"");
+                                bw.newLine();
+                            }
+                        }
+                        if(symArrHit(i)!=100) {
+                            bw.write("                                                                              MAKE SURE THIS IS WORKING I have match for \"" + Global.words[i] + "\" with \"" + Global.symArr[symArrHit(i)]+"\"");
+                            bw.newLine();
+                        }
+
+                    }
+            }
+        }
+    }
+
+    //a=i
+    //i is the for loop for "words" in the array
+    public static int symArrHit (int a)
+    {
+        for (int n =0; n<Global.symArr.length; n++) {
+            if ((Global.words[a]).equals("" +Global.symArr[n])) {
+                return n;
+            }
+        }
+        return 100;
+    }
+}
