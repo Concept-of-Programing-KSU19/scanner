@@ -12,7 +12,7 @@ public class Main {
                 // System.out.println(Global.keyWordArr[test]);
                 if(test<100){
                 Global.tokenKeyword[test]=(1100+(test));
-                System.out.println(Global.tokenKeyword[test]);
+          //     System.out.println(Global.tokenKeyword[test]);
                 }
             }
 
@@ -21,7 +21,7 @@ public class Main {
                 // System.out.println(Global.keyWordArr[test]);
                 if(test1<100){
                     Global.tokenSym[test1]=(1200+(test1));
-                    System.out.println(Global.tokenSym[test1]);
+            //        System.out.println(Global.tokenSym[test1]);
                 }
             }
 
