@@ -1,10 +1,11 @@
 m = 17
 m + 3
 m = 1 + 1
-m = "Hello World"
+m = "String"
 x = -17
 x + 3
-
+return m
+end
 
 //Old test file
 V = 
