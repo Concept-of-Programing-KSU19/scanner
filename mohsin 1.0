@@ -101,3 +101,22 @@ public class Main {
         return isValidInteger;
     }
 }
+/*
+            for (int test=0; test<Global.keyWordArr.length+1;test++){
+                //System.out.println(test);
+                // System.out.println(Global.keyWordArr[test]);
+                if(test<100){
+                Global.tokenKeyword[test]=(1100+(test));
+                System.out.println(Global.tokenKeyword[test]);
+                }
+            }
+
+            for (int test1=0; test1<Global.symArr.length+1;test1++){
+                //System.out.println(test);
+                // System.out.println(Global.keyWordArr[test]);
+                if(test1<100){
+                    Global.tokenSym[test1]=(1200+(test1));
+                    System.out.println(Global.tokenSym[test1]);
+                }
+            }
+            */
